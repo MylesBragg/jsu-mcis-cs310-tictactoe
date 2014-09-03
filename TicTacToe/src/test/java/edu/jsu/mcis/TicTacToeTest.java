@@ -6,11 +6,20 @@ import static org.junit.Assert.*;
 public class TicTacToeTest {
     
     @Test
-    public void testShowIt() {
+    public void testWinDiagonallyAsX() {
+		TicTacToe game = new TicTacToe();
+		game.markLocation(1,1);
     }
     
     @Test
-    public void testReverseIt() {
+    public void testWinHorizontallyAsO() {
+	
+	
     }
+	
+	@Test
+	public void testForceATie() {
+	
+	}
         
 }

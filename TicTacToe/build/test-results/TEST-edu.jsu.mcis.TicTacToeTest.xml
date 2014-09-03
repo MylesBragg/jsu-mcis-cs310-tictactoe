@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.TicTacToeTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-09-03T02:37:08" hostname="Ian-PC" time="0.005">
+<testsuite name="edu.jsu.mcis.TicTacToeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2014-09-03T04:51:52" hostname="Ian-PC" time="0.006">
   <properties/>
-  <testcase name="testReverseIt" classname="edu.jsu.mcis.TicTacToeTest" time="0.004"/>
-  <testcase name="testShowIt" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="testForceATie" classname="edu.jsu.mcis.TicTacToeTest" time="0.003"/>
+  <testcase name="testWinHorizontallyAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
+  <testcase name="testWinDiagonallyAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
