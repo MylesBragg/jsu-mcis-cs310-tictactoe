@@ -8,7 +8,8 @@ public class TicTacToeTest {
     @Test
     public void testWinDiagonallyAsX() {
 		TicTacToe game = new TicTacToe();
-		game.markLocation(1,1);
+		game.markLocation(1,1,'X');
+		assertEquals('X', game.checkLocation(1,1));
     }
     
     @Test

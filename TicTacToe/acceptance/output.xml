@@ -1,49 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 2.8.5 (Jython 2.5.3 on java1.7.0_51)" generated="20140902 23:50:46.572">
+<robot generator="Robot 2.8.5 (Jython 2.5.3 on java1.7.0_51)" generated="20140903 12:49:14.375">
 <suite source="C:\Users\Ian\Documents\GitHub\jsu-mcis-cs310-tictactoe\TicTacToe\acceptance\TicTacToeTests.txt" id="s1" name="TicTacToeTests">
 <test id="s1-t1" name="Win Diagonally as X">
-<kw type="kw" name="Start New Game">
+<kw type="kw" name="TicTacToeKeywords.Start New Game">
 <doc></doc>
 <arguments>
 </arguments>
-<msg timestamp="20140902 23:50:47.606" level="FAIL">No keyword with name 'Start New Game' found.</msg>
-<status status="FAIL" endtime="20140902 23:50:47.607" starttime="20140902 23:50:47.603"></status>
+<status status="PASS" endtime="20140903 12:49:15.635" starttime="20140903 12:49:15.628"></status>
+</kw>
+<kw type="kw" name="Mark Location">
+<doc></doc>
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20140903 12:49:15.643" level="FAIL">No keyword with name 'Mark Location' found.</msg>
+<status status="FAIL" endtime="20140903 12:49:15.644" starttime="20140903 12:49:15.639"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" critical="yes" endtime="20140902 23:50:47.611" starttime="20140902 23:50:47.593">No keyword with name 'Start New Game' found.</status>
+<status status="FAIL" critical="yes" endtime="20140903 12:49:15.648" starttime="20140903 12:49:15.618">No keyword with name 'Mark Location' found.</status>
 </test>
 <test id="s1-t2" name="Win Horizontally as O">
-<kw type="kw" name="Start New Game">
+<kw type="kw" name="TicTacToeKeywords.Start New Game">
 <doc></doc>
 <arguments>
 </arguments>
-<msg timestamp="20140902 23:50:47.635" level="FAIL">No keyword with name 'Start New Game' found.</msg>
-<status status="FAIL" endtime="20140902 23:50:47.636" starttime="20140902 23:50:47.633"></status>
+<status status="PASS" endtime="20140903 12:49:15.667" starttime="20140903 12:49:15.663"></status>
+</kw>
+<kw type="kw" name="Mark Location">
+<doc></doc>
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20140903 12:49:15.673" level="FAIL">No keyword with name 'Mark Location' found.</msg>
+<status status="FAIL" endtime="20140903 12:49:15.674" starttime="20140903 12:49:15.670"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" critical="yes" endtime="20140902 23:50:47.640" starttime="20140902 23:50:47.624">No keyword with name 'Start New Game' found.</status>
+<status status="FAIL" critical="yes" endtime="20140903 12:49:15.677" starttime="20140903 12:49:15.653">No keyword with name 'Mark Location' found.</status>
 </test>
 <test id="s1-t3" name="Force a Tie">
-<kw type="kw" name="Start New Game">
+<kw type="kw" name="TicTacToeKeywords.Start New Game">
 <doc></doc>
 <arguments>
 </arguments>
-<msg timestamp="20140902 23:50:47.661" level="FAIL">No keyword with name 'Start New Game' found.</msg>
-<status status="FAIL" endtime="20140902 23:50:47.662" starttime="20140902 23:50:47.659"></status>
+<status status="PASS" endtime="20140903 12:49:15.696" starttime="20140903 12:49:15.691"></status>
+</kw>
+<kw type="kw" name="Mark Location">
+<doc></doc>
+<arguments>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<msg timestamp="20140903 12:49:15.702" level="FAIL">No keyword with name 'Mark Location' found.</msg>
+<status status="FAIL" endtime="20140903 12:49:15.703" starttime="20140903 12:49:15.699"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" critical="yes" endtime="20140902 23:50:47.665" starttime="20140902 23:50:47.650">No keyword with name 'Start New Game' found.</status>
+<status status="FAIL" critical="yes" endtime="20140903 12:49:15.706" starttime="20140903 12:49:15.682">No keyword with name 'Mark Location' found.</status>
 </test>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="FAIL" endtime="20140902 23:50:47.679" starttime="20140902 23:50:46.762"></status>
+<status status="FAIL" endtime="20140903 12:49:15.714" starttime="20140903 12:49:14.388"></status>
 </suite>
 <statistics>
 <total>
@@ -57,6 +81,5 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20140902 23:50:47.569" level="WARN">Imported library 'TicTacToeKeywords' contains no keywords</msg>
 </errors>
 </robot>
