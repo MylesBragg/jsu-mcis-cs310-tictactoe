@@ -6,13 +6,5 @@ public class TicTacToeKeywords {
 	public void startNewGame() {
 		game = new TicTacToe();
 	}
-	
-	public void markLocation(int row, int col) {
-		game.markLocation(row,col,'X');
-	}
-		
-	
-	
-	
 
 }

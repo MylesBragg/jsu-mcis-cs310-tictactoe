@@ -1,124 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 2.8.5 (Jython 2.5.3 on java1.7.0_51)" generated="20140903 13:37:01.277">
+<robot generator="Robot 2.8.5 (Jython 2.5.3 on java1.7.0_51)" generated="20140903 12:49:14.375">
 <suite source="C:\Users\Ian\Documents\GitHub\jsu-mcis-cs310-tictactoe\TicTacToe\acceptance\TicTacToeTests.txt" id="s1" name="TicTacToeTests">
 <test id="s1-t1" name="Win Diagonally as X">
 <kw type="kw" name="TicTacToeKeywords.Start New Game">
 <doc></doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140903 13:37:02.259" starttime="20140903 13:37:02.232"></status>
+<status status="PASS" endtime="20140903 12:49:15.635" starttime="20140903 12:49:15.628"></status>
 </kw>
-<kw type="kw" name="TicTacToeKeywords.Mark Location">
+<kw type="kw" name="Mark Location">
 <doc></doc>
 <arguments>
 <arg>1</arg>
 <arg>1</arg>
 </arguments>
-<status status="PASS" endtime="20140903 13:37:02.267" starttime="20140903 13:37:02.262"></status>
-</kw>
-<kw type="kw" name="Check Location">
-<doc></doc>
-<arguments>
-<arg>1</arg>
-<arg>1</arg>
-<arg>X</arg>
-</arguments>
-<kw type="kw" name="${loc} = Get Location">
-<doc></doc>
-<arguments>
-<arg>${row}</arg>
-<arg>${col}</arg>
-</arguments>
-<msg timestamp="20140903 13:37:02.286" level="FAIL">No keyword with name 'Get Location' found.</msg>
-<status status="FAIL" endtime="20140903 13:37:02.287" starttime="20140903 13:37:02.279"></status>
-</kw>
-<status status="FAIL" endtime="20140903 13:37:02.290" starttime="20140903 13:37:02.270"></status>
+<msg timestamp="20140903 12:49:15.643" level="FAIL">No keyword with name 'Mark Location' found.</msg>
+<status status="FAIL" endtime="20140903 12:49:15.644" starttime="20140903 12:49:15.639"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" critical="yes" endtime="20140903 13:37:02.300" starttime="20140903 13:37:02.222">No keyword with name 'Get Location' found.</status>
+<status status="FAIL" critical="yes" endtime="20140903 12:49:15.648" starttime="20140903 12:49:15.618">No keyword with name 'Mark Location' found.</status>
 </test>
 <test id="s1-t2" name="Win Horizontally as O">
 <kw type="kw" name="TicTacToeKeywords.Start New Game">
 <doc></doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140903 13:37:02.362" starttime="20140903 13:37:02.358"></status>
+<status status="PASS" endtime="20140903 12:49:15.667" starttime="20140903 12:49:15.663"></status>
 </kw>
-<kw type="kw" name="TicTacToeKeywords.Mark Location">
+<kw type="kw" name="Mark Location">
 <doc></doc>
 <arguments>
 <arg>1</arg>
 <arg>1</arg>
 </arguments>
-<status status="PASS" endtime="20140903 13:37:02.369" starttime="20140903 13:37:02.365"></status>
-</kw>
-<kw type="kw" name="Check Location">
-<doc></doc>
-<arguments>
-<arg>1</arg>
-<arg>1</arg>
-<arg>X</arg>
-</arguments>
-<kw type="kw" name="${loc} = Get Location">
-<doc></doc>
-<arguments>
-<arg>${row}</arg>
-<arg>${col}</arg>
-</arguments>
-<msg timestamp="20140903 13:37:02.384" level="FAIL">No keyword with name 'Get Location' found.</msg>
-<status status="FAIL" endtime="20140903 13:37:02.386" starttime="20140903 13:37:02.382"></status>
-</kw>
-<status status="FAIL" endtime="20140903 13:37:02.388" starttime="20140903 13:37:02.372"></status>
+<msg timestamp="20140903 12:49:15.673" level="FAIL">No keyword with name 'Mark Location' found.</msg>
+<status status="FAIL" endtime="20140903 12:49:15.674" starttime="20140903 12:49:15.670"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" critical="yes" endtime="20140903 13:37:02.391" starttime="20140903 13:37:02.332">No keyword with name 'Get Location' found.</status>
+<status status="FAIL" critical="yes" endtime="20140903 12:49:15.677" starttime="20140903 12:49:15.653">No keyword with name 'Mark Location' found.</status>
 </test>
 <test id="s1-t3" name="Force a Tie">
 <kw type="kw" name="TicTacToeKeywords.Start New Game">
 <doc></doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140903 13:37:02.408" starttime="20140903 13:37:02.405"></status>
+<status status="PASS" endtime="20140903 12:49:15.696" starttime="20140903 12:49:15.691"></status>
 </kw>
-<kw type="kw" name="TicTacToeKeywords.Mark Location">
+<kw type="kw" name="Mark Location">
 <doc></doc>
 <arguments>
 <arg>1</arg>
 <arg>1</arg>
 </arguments>
-<status status="PASS" endtime="20140903 13:37:02.414" starttime="20140903 13:37:02.411"></status>
-</kw>
-<kw type="kw" name="Check Location">
-<doc></doc>
-<arguments>
-<arg>1</arg>
-<arg>1</arg>
-<arg>X</arg>
-</arguments>
-<kw type="kw" name="${loc} = Get Location">
-<doc></doc>
-<arguments>
-<arg>${row}</arg>
-<arg>${col}</arg>
-</arguments>
-<msg timestamp="20140903 13:37:02.425" level="FAIL">No keyword with name 'Get Location' found.</msg>
-<status status="FAIL" endtime="20140903 13:37:02.426" starttime="20140903 13:37:02.423"></status>
-</kw>
-<status status="FAIL" endtime="20140903 13:37:02.428" starttime="20140903 13:37:02.416"></status>
+<msg timestamp="20140903 12:49:15.702" level="FAIL">No keyword with name 'Mark Location' found.</msg>
+<status status="FAIL" endtime="20140903 12:49:15.703" starttime="20140903 12:49:15.699"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" critical="yes" endtime="20140903 13:37:02.430" starttime="20140903 13:37:02.397">No keyword with name 'Get Location' found.</status>
+<status status="FAIL" critical="yes" endtime="20140903 12:49:15.706" starttime="20140903 12:49:15.682">No keyword with name 'Mark Location' found.</status>
 </test>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="FAIL" endtime="20140903 13:37:02.439" starttime="20140903 13:37:01.287"></status>
+<status status="FAIL" endtime="20140903 12:49:15.714" starttime="20140903 12:49:14.388"></status>
 </suite>
 <statistics>
 <total>
