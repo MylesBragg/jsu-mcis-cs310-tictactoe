@@ -1,77 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TicTacToe.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicTacToe</a> &gt; <a href="index.source.html" class="el_package">edu.jsu.mcis</a> &gt; <span class="el_source">TicTacToe.java</span></div><h1>TicTacToe.java</h1><pre class="source lang-java linenums">package edu.jsu.mcis;
 
 public class TicTacToe {
-	private char[][] gameBoard;
-	public char mark;
+	public gameboardStates[][] gameBoard;
 	public static final int GAMEBOARD_DIMENSION = 3;
-	public static final char EMPTY_SPACE = ' ';
 	
+<span class="pc" id="L7">	public enum gameboardStates</span>
+	{
+<span class="fc" id="L9">	X, O, TIE, Empty</span>
+	}
 	
-<span class="fc" id="L10">	public TicTacToe() {</span>
-<span class="fc" id="L11">    gameBoard = new char[GAMEBOARD_DIMENSION][GAMEBOARD_DIMENSION];</span>
-<span class="fc" id="L12">    mark = 'X';</span>
-<span class="fc" id="L13">    freshBoard();</span>
-<span class="fc" id="L14">	}</span>
+	public gameboardStates winner;
+	public gameboardStates mark;
+	
+<span class="fc" id="L15">	public TicTacToe() {</span>
+<span class="fc" id="L16">    gameBoard = new gameboardStates[GAMEBOARD_DIMENSION][GAMEBOARD_DIMENSION];</span>
+<span class="fc" id="L17">    mark = gameboardStates.X;</span>
+<span class="fc" id="L18">	winner = gameboardStates.TIE;</span>
+<span class="fc" id="L19">    freshBoard();</span>
+<span class="fc" id="L20">	}</span>
 	
 	public void freshBoard() {
-<span class="fc bfc" id="L17" title="All 2 branches covered.">	    for(int row = 0; row &lt; GAMEBOARD_DIMENSION; row++) {</span>
-<span class="fc bfc" id="L18" title="All 2 branches covered.">	        for(int col = 0; col &lt; GAMEBOARD_DIMENSION; col++) {</span>
-<span class="fc" id="L19">	          gameBoard[row][col] = EMPTY_SPACE;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">	    for(int row = 0; row &lt; GAMEBOARD_DIMENSION; row++) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">	        for(int col = 0; col &lt; GAMEBOARD_DIMENSION; col++) {</span>
+<span class="fc" id="L25">	          gameBoard[row][col] = gameboardStates.Empty;</span>
 	        }
 	     }
-<span class="fc" id="L22">	}</span>
-	
-	public void markLocation(int row, int col) {
-<span class="pc bpc" id="L25" title="1 of 2 branches missed.">		if (gameBoard[row][col] == EMPTY_SPACE) {</span>
-<span class="fc" id="L26">			gameBoard[row][col] = mark;</span>
-		}
 <span class="fc" id="L28">	}</span>
 	
-	public String getLocation(int row, int col) {
-<span class="fc" id="L31">		return Character.toString(gameBoard[row][col]);</span>
-	}
-	
-	   
-	private boolean markCheck(char a, char b, char c) {
-<span class="fc bfc" id="L36" title="All 6 branches covered.">		  	return ((a != ' ') &amp;&amp; (a == b) &amp;&amp; (b == c));</span>
-	}
-	
-	private boolean rowWin() {
-<span class="fc bfc" id="L40" title="All 2 branches covered.">		for (int row = 0; row &lt; 3; row++) {</span>
-<span class="pc bpc" id="L41" title="1 of 2 branches missed.">			if (markCheck(gameBoard[row][0], gameBoard[row][1], gameBoard[row][2]) == true) {</span>
-<span class="nc" id="L42">				return true;</span>
-			}
+	public void markLocation(int row, int col) {
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">		if (gameBoard[row][col] == gameboardStates.Empty) {</span>
+<span class="fc" id="L32">			gameBoard[row][col] = mark;</span>
+<span class="fc" id="L33">			markSwap();</span>
 		}
-<span class="fc" id="L45">		return false;</span>
+<span class="fc" id="L35">	}</span>
+	
+	public gameboardStates getLocation(int row, int col) {
+<span class="fc" id="L38">		return gameBoard[row][col];</span>
 	}
 	
-	private boolean diagonalWin() {
-<span class="pc bpc" id="L49" title="1 of 4 branches missed.">		 return ((markCheck(gameBoard[0][0], gameBoard[1][1], gameBoard[2][2]) == true) || (markCheck(gameBoard[0][2], gameBoard[1][1], gameBoard[2][0]) == true));</span>
+	
+	private gameboardStates rowWinTop() {
+<span class="fc bfc" id="L43" title="All 4 branches covered.">			if (gameBoard[0][0] == gameBoard[0][1] &amp;&amp; gameBoard[0][1] == gameBoard[0][2]) {</span>
+<span class="fc" id="L44">				winner = gameBoard[0][0];</span>
+			}
+<span class="fc" id="L46">		return winner;</span>
 	}
 	
-	
-	public boolean winCondition() {
-<span class="pc bpc" id="L54" title="1 of 4 branches missed.">		return (rowWin() || diagonalWin());	    </span>
+	private gameboardStates rowWinMid() {
+<span class="fc bfc" id="L50" title="All 4 branches covered.">			if (gameBoard[1][0] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[1][2]) {</span>
+<span class="fc" id="L51">				winner = gameBoard[1][0];</span>
+			}
+<span class="fc" id="L53">		return winner;</span>
 	}
 	
+	private gameboardStates rowWinBottom() {
+<span class="fc bfc" id="L57" title="All 4 branches covered.">			if (gameBoard[2][0] == gameBoard[2][1] &amp;&amp; gameBoard[2][1] == gameBoard[2][2]) {</span>
+<span class="fc" id="L58">				winner = gameBoard[2][0];</span>
+			}
+<span class="fc" id="L60">		return winner;</span>
+	}
+	
+	private gameboardStates colWinLeft() {
+<span class="fc bfc" id="L64" title="All 4 branches covered.">			if (gameBoard[0][0] == gameBoard[1][0] &amp;&amp; gameBoard[1][0] == gameBoard[2][0]) {</span>
+<span class="fc" id="L65">				winner = gameBoard[0][0];</span>
+			}
+<span class="fc" id="L67">		return winner;</span>
+	}
+	
+	private gameboardStates colWinMid() {
+<span class="pc bpc" id="L71" title="1 of 4 branches missed.">			if (gameBoard[0][1] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][1]) {</span>
+<span class="fc" id="L72">				winner = gameBoard[0][1];</span>
+			}
+<span class="fc" id="L74">		return winner;</span>
+	}
+	
+	private gameboardStates colWinRight() {
+<span class="fc bfc" id="L78" title="All 4 branches covered.">			if (gameBoard[0][2] == gameBoard[1][2] &amp;&amp; gameBoard[1][2] == gameBoard[2][2]) {</span>
+<span class="fc" id="L79">				winner = gameBoard[0][2];</span>
+			}
+<span class="fc" id="L81">		return winner;</span>
+	}
+	
+	private gameboardStates diagWin() {
+<span class="fc bfc" id="L85" title="All 4 branches covered.">			if (gameBoard[0][0] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][2]) {</span>
+<span class="fc" id="L86">				winner = gameBoard[0][0];</span>
+			}
+<span class="fc" id="L88">		return winner;</span>
+	}
+	
+	private gameboardStates reverseDiagWin() {
+<span class="fc bfc" id="L92" title="All 4 branches covered.">			if (gameBoard[0][2] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][0]) {</span>
+<span class="fc" id="L93">				winner = gameBoard[0][2];</span>
+			}
+<span class="fc" id="L95">		return winner;</span>
+	}
+	
+	public gameboardStates getWinner() {
+<span class="fc" id="L99">		rowWinTop();</span>
+<span class="fc" id="L100">		rowWinMid();</span>
+<span class="fc" id="L101">		rowWinBottom();</span>
+<span class="fc" id="L102">		colWinLeft();</span>
+<span class="fc" id="L103">		colWinMid();</span>
+<span class="fc" id="L104">		colWinRight();</span>
+<span class="fc" id="L105">		diagWin();</span>
+<span class="fc" id="L106">		reverseDiagWin();</span>
+<span class="fc" id="L107">		return winner;	    </span>
+	}
 
     public void markSwap() {
-<span class="fc bfc" id="L59" title="All 2 branches covered.">    	if (mark == 'X') {</span>
-<span class="fc" id="L60">    		mark = 'O';</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">    	if (mark == gameboardStates.X) {</span>
+<span class="fc" id="L112">    		mark = gameboardStates.O;</span>
     	}
     	else {
-<span class="fc" id="L63">        	mark = 'X';</span>
+<span class="fc" id="L115">        	mark = gameboardStates.X;</span>
     	}
-<span class="fc" id="L65">    }</span>
+<span class="fc" id="L117">    }</span>
+	
+	
   
-    
-    public String getWinner() {
-<span class="fc bfc" id="L69" title="All 2 branches covered.">		if (winCondition() == true) {</span>
-<span class="fc" id="L70">			markSwap();</span>
-<span class="fc" id="L71">			char temp = mark;</span>
-<span class="fc" id="L72">			return Character.toString(temp);</span>
-    }
-<span class="fc" id="L74">	return &quot;TIE&quot;;</span>
-    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
