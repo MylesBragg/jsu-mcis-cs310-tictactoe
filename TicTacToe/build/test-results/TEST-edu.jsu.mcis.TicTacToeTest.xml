@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.jsu.mcis.TicTacToeTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2014-09-17T03:44:29" hostname="Myles-PC" time="0.016">
+<testsuite name="edu.jsu.mcis.TicTacToeTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2014-09-17T23:55:09" hostname="Myles-PC" time="0.015">
   <properties/>
-  <testcase name="testColWinLeftAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.005"/>
+  <testcase name="testColWinLeftAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
   <testcase name="testColWinRightAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
-  <testcase name="testRowWinMidAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.004"/>
+  <testcase name="testRowWinMidAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
   <testcase name="testRowWinTopAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
-  <testcase name="testColWinMidAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.001"/>
+  <testcase name="testColWinMidAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
   <testcase name="testMarkLocation" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
   <testcase name="testReverseDiagWinAsO" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
   <testcase name="testDiagWinAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
-  <testcase name="testRowWinBottomAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.001"/>
+  <testcase name="testRowWinBottomAsX" classname="edu.jsu.mcis.TicTacToeTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

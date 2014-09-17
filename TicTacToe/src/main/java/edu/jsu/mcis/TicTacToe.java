@@ -1,12 +1,14 @@
 package edu.jsu.mcis;
 
 public class TicTacToe {
+
 	public gameboardStates[][] gameBoard;
 	public static final int GAMEBOARD_DIMENSION = 3;
+
 	
 	public enum gameboardStates
 	{
-	X, O, TIE, Empty
+		X, O, TIE, Empty;
 	}
 	
 	public gameboardStates winner;
@@ -34,10 +36,10 @@ public class TicTacToe {
 		}
 	}
 	
+
 	public gameboardStates getLocation(int row, int col) {
 		return gameBoard[row][col];
 	}
-	
 	
 	private gameboardStates rowWinTop() {
 			if (gameBoard[0][0] == gameBoard[0][1] && gameBoard[0][1] == gameBoard[0][2]) {
@@ -73,7 +75,7 @@ public class TicTacToe {
 			}
 		return winner;
 	}
-	
+   
 	private gameboardStates colWinRight() {
 			if (gameBoard[0][2] == gameBoard[1][2] && gameBoard[1][2] == gameBoard[2][2]) {
 				winner = gameBoard[0][2];
@@ -115,7 +117,4 @@ public class TicTacToe {
         	mark = gameboardStates.X;
     	}
     }
-	
-	
-  
 }
