@@ -18,7 +18,7 @@ Check Location  [Arguments]     ${row}  ${col}  ${mark}
 Winner Should Be    [Arguments]     ${winner}
     Select Dialog   Game Over
     ${message}=     Catenate    The winner is   ${winner}
-    Button Text Should Be    OptionPane.label    ${message}
+    Label Text Should Be    OptionPane.label    ${message}
     Close Dialog    Game Over
     Close Window    Tic Tac Toe
     

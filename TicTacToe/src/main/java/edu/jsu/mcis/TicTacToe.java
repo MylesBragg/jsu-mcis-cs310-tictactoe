@@ -4,6 +4,7 @@ public class TicTacToe {
 
 	public gameboardStates[][] gameBoard;
 	public static final int GAMEBOARD_DIMENSION = 3;
+	int count = 0;
 
 	
 	public enum gameboardStates
@@ -42,56 +43,56 @@ public class TicTacToe {
 	}
 	
 	private gameboardStates rowWinTop() {
-			if (gameBoard[0][0] == gameBoard[0][1] && gameBoard[0][1] == gameBoard[0][2]) {
+			if (gameBoard[0][0] != gameboardStates.Empty && gameBoard[0][0] == gameBoard[0][1] && gameBoard[0][1] == gameBoard[0][2]) {
 				winner = gameBoard[0][0];
 			}
 		return winner;
 	}
 	
 	private gameboardStates rowWinMid() {
-			if (gameBoard[1][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[1][2]) {
+			if (gameBoard[1][0] != gameboardStates.Empty && gameBoard[1][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[1][2]) {
 				winner = gameBoard[1][0];
 			}
 		return winner;
 	}
 	
 	private gameboardStates rowWinBottom() {
-			if (gameBoard[2][0] == gameBoard[2][1] && gameBoard[2][1] == gameBoard[2][2]) {
+			if (gameBoard[2][0] != gameboardStates.Empty && gameBoard[2][0] == gameBoard[2][1] && gameBoard[2][1] == gameBoard[2][2]) {
 				winner = gameBoard[2][0];
 			}
 		return winner;
 	}
 	
 	private gameboardStates colWinLeft() {
-			if (gameBoard[0][0] == gameBoard[1][0] && gameBoard[1][0] == gameBoard[2][0]) {
+			if (gameBoard[0][0] != gameboardStates.Empty && gameBoard[0][0] == gameBoard[1][0] && gameBoard[1][0] == gameBoard[2][0]) {
 				winner = gameBoard[0][0];
 			}
 		return winner;
 	}
 	
 	private gameboardStates colWinMid() {
-			if (gameBoard[0][1] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][1]) {
+			if (gameBoard[0][1] != gameboardStates.Empty && gameBoard[0][1] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][1]) {
 				winner = gameBoard[0][1];
 			}
 		return winner;
 	}
    
 	private gameboardStates colWinRight() {
-			if (gameBoard[0][2] == gameBoard[1][2] && gameBoard[1][2] == gameBoard[2][2]) {
+			if (gameBoard[0][2] != gameboardStates.Empty && gameBoard[0][2] == gameBoard[1][2] && gameBoard[1][2] == gameBoard[2][2]) {
 				winner = gameBoard[0][2];
 			}
 		return winner;
 	}
 	
 	private gameboardStates diagWin() {
-			if (gameBoard[0][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][2]) {
+			if (gameBoard[0][0] != gameboardStates.Empty && gameBoard[0][0] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][2]) {
 				winner = gameBoard[0][0];
 			}
 		return winner;
 	}
 	
 	private gameboardStates reverseDiagWin() {
-			if (gameBoard[0][2] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][0]) {
+			if (gameBoard[0][2] != gameboardStates.Empty && gameBoard[0][2] == gameBoard[1][1] && gameBoard[1][1] == gameBoard[2][0]) {
 				winner = gameBoard[0][2];
 			}
 		return winner;
@@ -106,10 +107,18 @@ public class TicTacToe {
 		colWinRight();
 		diagWin();
 		reverseDiagWin();
+		forceATie();
 		return winner;	    
+	}
+	
+	private gameboardStates forceATie() {
+		if (count >= 8) 
+			winner = gameboardStates.TIE;
+			return winner;
 	}
 
     public void markSwap() {
+		count++;
     	if (mark == gameboardStates.X) {
     		mark = gameboardStates.O;
     	}

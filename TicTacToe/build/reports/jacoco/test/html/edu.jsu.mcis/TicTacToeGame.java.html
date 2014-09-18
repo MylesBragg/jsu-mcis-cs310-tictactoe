@@ -8,7 +8,7 @@ public class TicTacToeGame extends JFrame implements ActionListener{
 	private TicTacToe theory;
 	JPanel panel;
 	JButton[][] square;
-<span class="nc" id="L11">	int count = 0;</span>
+
 	
 	
 <span class="nc" id="L14">	public TicTacToeGame(){</span>
@@ -25,46 +25,48 @@ public class TicTacToeGame extends JFrame implements ActionListener{
 <span class="nc" id="L25">			square[i][j].setName(&quot;Location&quot; + i + j);</span>
 <span class="nc" id="L26">			square[i][j].addActionListener(this);</span>
 <span class="nc" id="L27">			panel.add(square[i][j]);</span>
-			//square[i][j].setEnabled(true);
-			
-
 		}
 	}
-<span class="nc" id="L33">			this.pack();</span>
-<span class="nc" id="L34">			this.setTitle(&quot;Tic Tac Toe&quot;);</span>
-<span class="nc" id="L35">			this.setSize(450, 450);</span>
-<span class="nc" id="L36">			this.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
-<span class="nc" id="L37">			this.setVisible(true);</span>
-<span class="nc" id="L38">	}</span>
+<span class="nc" id="L30">			this.pack();</span>
+<span class="nc" id="L31">			this.setTitle(&quot;Tic Tac Toe&quot;);</span>
+<span class="nc" id="L32">			this.setSize(450, 450);</span>
+<span class="nc" id="L33">			this.setDefaultCloseOperation(EXIT_ON_CLOSE);</span>
+<span class="nc" id="L34">			this.setVisible(true);</span>
+<span class="nc" id="L35">	}</span>
 	public void actionPerformed(ActionEvent e){
-<span class="nc" id="L40">		count++;</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">		for(int i = 0; i &lt; 3; i++) {</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">			for(int j = 0; j &lt; 3; j++) {</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">				if(square[i][j] == (JButton) e.getSource()){</span>
-						
-<span class="nc" id="L45">						theory.markLocation(i,j);</span>
-<span class="nc" id="L46">						String player = placeMark(i,j);</span>
-<span class="nc" id="L47">						square[i][j].setText(player);</span>
-<span class="nc" id="L48">						square[i][j].setEnabled(false);</span>
+
+<span class="nc bnc" id="L38" title="All 2 branches missed.">		for(int i = 0; i &lt; 3; i++) {</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">			for(int j = 0; j &lt; 3; j++) {</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">				if(square[i][j] == (JButton) e.getSource()){</span>
+<span class="nc" id="L41">						theory.markLocation(i,j);</span>
+<span class="nc" id="L42">						String player = placeMark(i,j);</span>
+<span class="nc" id="L43">						square[i][j].setText(player);</span>
+<span class="nc" id="L44">						square[i][j].setEnabled(false);</span>
 				}
 			}
 		}
-		
-<span class="nc bnc" id="L53" title="All 2 branches missed.">		if(count &gt;= 9) {</span>
-<span class="nc" id="L54">			JOptionPane.showMessageDialog(null, &quot;TIE!&quot;);</span>
-<span class="nc" id="L55">			return;</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		if(theory.getWinner() != TicTacToe.gameboardStates.TIE) {</span>
+<span class="nc" id="L49">			(new Thread(new Runnable () {</span>
+<span class="nc" id="L50">			public void run() {JOptionPane displayResult = new JOptionPane();</span>
+<span class="nc" id="L51">				displayResult.showMessageDialog(null, &quot;The winner is &quot; + theory.getWinner(), &quot;Game Over&quot;, 0);</span>
+<span class="nc" id="L52">				}})).start();</span>
 		}
-<span class="nc" id="L57">	}</span>
+<span class="nc bnc" id="L54" title="All 4 branches missed.">		else if (theory.getWinner() == TicTacToe.gameboardStates.TIE &amp;&amp; theory.count &gt;= 8) {</span>
+<span class="nc" id="L55">			(new Thread(new Runnable () {</span>
+<span class="nc" id="L56">				public void run() {JOptionPane displayResult = new JOptionPane();</span>
+<span class="nc" id="L57">					displayResult.showMessageDialog(null, &quot;The winner is &quot; + theory.getWinner(), &quot;Game Over&quot;, 0);</span>
+<span class="nc" id="L58">					}})).start();</span>
+		}
+<span class="nc" id="L60">	}</span>
 	
 	public String placeMark(int row, int col)
 	{
-		//theory.markLocation(row,col);
-<span class="nc" id="L62">		return theory.getLocation(row,col).toString();</span>
+<span class="nc" id="L64">		return theory.getLocation(row,col).toString();</span>
 	}
 	
 
 	public static void main(String[] args){
-<span class="nc" id="L67">	TicTacToeGame gui = new TicTacToeGame();</span>
-<span class="nc" id="L68">	}</span>
+<span class="nc" id="L69">	TicTacToeGame gui = new TicTacToeGame();</span>
+<span class="nc" id="L70">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

@@ -4,118 +4,127 @@ public class TicTacToe {
 
 	public gameboardStates[][] gameBoard;
 	public static final int GAMEBOARD_DIMENSION = 3;
+<span class="fc" id="L7">	int count = 0;</span>
 
 	
-<span class="pc" id="L9">	public enum gameboardStates</span>
+<span class="pc" id="L10">	public enum gameboardStates</span>
 	{
-<span class="fc" id="L11">		X, O, TIE, Empty;</span>
+<span class="fc" id="L12">		X, O, TIE, Empty;</span>
 	}
 	
 	public gameboardStates winner;
 	public gameboardStates mark;
 	
-<span class="fc" id="L17">	public TicTacToe() {</span>
-<span class="fc" id="L18">    gameBoard = new gameboardStates[GAMEBOARD_DIMENSION][GAMEBOARD_DIMENSION];</span>
-<span class="fc" id="L19">    mark = gameboardStates.X;</span>
-<span class="fc" id="L20">	winner = gameboardStates.TIE;</span>
-<span class="fc" id="L21">    freshBoard();</span>
-<span class="fc" id="L22">	}</span>
+<span class="fc" id="L18">	public TicTacToe() {</span>
+<span class="fc" id="L19">    gameBoard = new gameboardStates[GAMEBOARD_DIMENSION][GAMEBOARD_DIMENSION];</span>
+<span class="fc" id="L20">    mark = gameboardStates.X;</span>
+<span class="fc" id="L21">	winner = gameboardStates.TIE;</span>
+<span class="fc" id="L22">    freshBoard();</span>
+<span class="fc" id="L23">	}</span>
 	
 	public void freshBoard() {
-<span class="fc bfc" id="L25" title="All 2 branches covered.">	    for(int row = 0; row &lt; GAMEBOARD_DIMENSION; row++) {</span>
-<span class="fc bfc" id="L26" title="All 2 branches covered.">	        for(int col = 0; col &lt; GAMEBOARD_DIMENSION; col++) {</span>
-<span class="fc" id="L27">	          gameBoard[row][col] = gameboardStates.Empty;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">	    for(int row = 0; row &lt; GAMEBOARD_DIMENSION; row++) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">	        for(int col = 0; col &lt; GAMEBOARD_DIMENSION; col++) {</span>
+<span class="fc" id="L28">	          gameBoard[row][col] = gameboardStates.Empty;</span>
 	        }
 	     }
-<span class="fc" id="L30">	}</span>
+<span class="fc" id="L31">	}</span>
 	
 	public void markLocation(int row, int col) {
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">		if (gameBoard[row][col] == gameboardStates.Empty) {</span>
-<span class="fc" id="L34">			gameBoard[row][col] = mark;</span>
-<span class="fc" id="L35">			markSwap();</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">		if (gameBoard[row][col] == gameboardStates.Empty) {</span>
+<span class="fc" id="L35">			gameBoard[row][col] = mark;</span>
+<span class="fc" id="L36">			markSwap();</span>
 		}
-<span class="fc" id="L37">	}</span>
+<span class="fc" id="L38">	}</span>
 	
 
 	public gameboardStates getLocation(int row, int col) {
-<span class="fc" id="L41">		return gameBoard[row][col];</span>
+<span class="fc" id="L42">		return gameBoard[row][col];</span>
 	}
 	
 	private gameboardStates rowWinTop() {
-<span class="fc bfc" id="L45" title="All 4 branches covered.">			if (gameBoard[0][0] == gameBoard[0][1] &amp;&amp; gameBoard[0][1] == gameBoard[0][2]) {</span>
-<span class="fc" id="L46">				winner = gameBoard[0][0];</span>
+<span class="fc bfc" id="L46" title="All 6 branches covered.">			if (gameBoard[0][0] != gameboardStates.Empty &amp;&amp; gameBoard[0][0] == gameBoard[0][1] &amp;&amp; gameBoard[0][1] == gameBoard[0][2]) {</span>
+<span class="fc" id="L47">				winner = gameBoard[0][0];</span>
 			}
-<span class="fc" id="L48">		return winner;</span>
+<span class="fc" id="L49">		return winner;</span>
 	}
 	
 	private gameboardStates rowWinMid() {
-<span class="fc bfc" id="L52" title="All 4 branches covered.">			if (gameBoard[1][0] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[1][2]) {</span>
-<span class="fc" id="L53">				winner = gameBoard[1][0];</span>
+<span class="pc bpc" id="L53" title="1 of 6 branches missed.">			if (gameBoard[1][0] != gameboardStates.Empty &amp;&amp; gameBoard[1][0] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[1][2]) {</span>
+<span class="fc" id="L54">				winner = gameBoard[1][0];</span>
 			}
-<span class="fc" id="L55">		return winner;</span>
+<span class="fc" id="L56">		return winner;</span>
 	}
 	
 	private gameboardStates rowWinBottom() {
-<span class="fc bfc" id="L59" title="All 4 branches covered.">			if (gameBoard[2][0] == gameBoard[2][1] &amp;&amp; gameBoard[2][1] == gameBoard[2][2]) {</span>
-<span class="fc" id="L60">				winner = gameBoard[2][0];</span>
+<span class="pc bpc" id="L60" title="1 of 6 branches missed.">			if (gameBoard[2][0] != gameboardStates.Empty &amp;&amp; gameBoard[2][0] == gameBoard[2][1] &amp;&amp; gameBoard[2][1] == gameBoard[2][2]) {</span>
+<span class="fc" id="L61">				winner = gameBoard[2][0];</span>
 			}
-<span class="fc" id="L62">		return winner;</span>
+<span class="fc" id="L63">		return winner;</span>
 	}
 	
 	private gameboardStates colWinLeft() {
-<span class="fc bfc" id="L66" title="All 4 branches covered.">			if (gameBoard[0][0] == gameBoard[1][0] &amp;&amp; gameBoard[1][0] == gameBoard[2][0]) {</span>
-<span class="fc" id="L67">				winner = gameBoard[0][0];</span>
+<span class="fc bfc" id="L67" title="All 6 branches covered.">			if (gameBoard[0][0] != gameboardStates.Empty &amp;&amp; gameBoard[0][0] == gameBoard[1][0] &amp;&amp; gameBoard[1][0] == gameBoard[2][0]) {</span>
+<span class="fc" id="L68">				winner = gameBoard[0][0];</span>
 			}
-<span class="fc" id="L69">		return winner;</span>
+<span class="fc" id="L70">		return winner;</span>
 	}
 	
 	private gameboardStates colWinMid() {
-<span class="pc bpc" id="L73" title="1 of 4 branches missed.">			if (gameBoard[0][1] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][1]) {</span>
-<span class="fc" id="L74">				winner = gameBoard[0][1];</span>
+<span class="pc bpc" id="L74" title="1 of 6 branches missed.">			if (gameBoard[0][1] != gameboardStates.Empty &amp;&amp; gameBoard[0][1] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][1]) {</span>
+<span class="fc" id="L75">				winner = gameBoard[0][1];</span>
 			}
-<span class="fc" id="L76">		return winner;</span>
+<span class="fc" id="L77">		return winner;</span>
 	}
    
 	private gameboardStates colWinRight() {
-<span class="fc bfc" id="L80" title="All 4 branches covered.">			if (gameBoard[0][2] == gameBoard[1][2] &amp;&amp; gameBoard[1][2] == gameBoard[2][2]) {</span>
-<span class="fc" id="L81">				winner = gameBoard[0][2];</span>
+<span class="pc bpc" id="L81" title="1 of 6 branches missed.">			if (gameBoard[0][2] != gameboardStates.Empty &amp;&amp; gameBoard[0][2] == gameBoard[1][2] &amp;&amp; gameBoard[1][2] == gameBoard[2][2]) {</span>
+<span class="fc" id="L82">				winner = gameBoard[0][2];</span>
 			}
-<span class="fc" id="L83">		return winner;</span>
+<span class="fc" id="L84">		return winner;</span>
 	}
 	
 	private gameboardStates diagWin() {
-<span class="fc bfc" id="L87" title="All 4 branches covered.">			if (gameBoard[0][0] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][2]) {</span>
-<span class="fc" id="L88">				winner = gameBoard[0][0];</span>
+<span class="pc bpc" id="L88" title="1 of 6 branches missed.">			if (gameBoard[0][0] != gameboardStates.Empty &amp;&amp; gameBoard[0][0] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][2]) {</span>
+<span class="fc" id="L89">				winner = gameBoard[0][0];</span>
 			}
-<span class="fc" id="L90">		return winner;</span>
+<span class="fc" id="L91">		return winner;</span>
 	}
 	
 	private gameboardStates reverseDiagWin() {
-<span class="fc bfc" id="L94" title="All 4 branches covered.">			if (gameBoard[0][2] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][0]) {</span>
-<span class="fc" id="L95">				winner = gameBoard[0][2];</span>
+<span class="pc bpc" id="L95" title="1 of 6 branches missed.">			if (gameBoard[0][2] != gameboardStates.Empty &amp;&amp; gameBoard[0][2] == gameBoard[1][1] &amp;&amp; gameBoard[1][1] == gameBoard[2][0]) {</span>
+<span class="fc" id="L96">				winner = gameBoard[0][2];</span>
 			}
-<span class="fc" id="L97">		return winner;</span>
+<span class="fc" id="L98">		return winner;</span>
 	}
 	
 	public gameboardStates getWinner() {
-<span class="fc" id="L101">		rowWinTop();</span>
-<span class="fc" id="L102">		rowWinMid();</span>
-<span class="fc" id="L103">		rowWinBottom();</span>
-<span class="fc" id="L104">		colWinLeft();</span>
-<span class="fc" id="L105">		colWinMid();</span>
-<span class="fc" id="L106">		colWinRight();</span>
-<span class="fc" id="L107">		diagWin();</span>
-<span class="fc" id="L108">		reverseDiagWin();</span>
-<span class="fc" id="L109">		return winner;	    </span>
+<span class="fc" id="L102">		rowWinTop();</span>
+<span class="fc" id="L103">		rowWinMid();</span>
+<span class="fc" id="L104">		rowWinBottom();</span>
+<span class="fc" id="L105">		colWinLeft();</span>
+<span class="fc" id="L106">		colWinMid();</span>
+<span class="fc" id="L107">		colWinRight();</span>
+<span class="fc" id="L108">		diagWin();</span>
+<span class="fc" id="L109">		reverseDiagWin();</span>
+<span class="fc" id="L110">		forceATie();</span>
+<span class="fc" id="L111">		return winner;	    </span>
+	}
+	
+	private gameboardStates forceATie() {
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		if (count &gt;= 8) </span>
+<span class="nc" id="L116">			winner = gameboardStates.TIE;</span>
+<span class="fc" id="L117">			return winner;</span>
 	}
 
     public void markSwap() {
-<span class="fc bfc" id="L113" title="All 2 branches covered.">    	if (mark == gameboardStates.X) {</span>
-<span class="fc" id="L114">    		mark = gameboardStates.O;</span>
+<span class="fc" id="L121">		count++;</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">    	if (mark == gameboardStates.X) {</span>
+<span class="fc" id="L123">    		mark = gameboardStates.O;</span>
     	}
     	else {
-<span class="fc" id="L117">        	mark = gameboardStates.X;</span>
+<span class="fc" id="L126">        	mark = gameboardStates.X;</span>
     	}
-<span class="fc" id="L119">    }</span>
+<span class="fc" id="L128">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
